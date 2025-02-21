@@ -1,0 +1,49 @@
+1. Classes and Objects
+Classes: A class is a template or blueprint for object creation. It determines the properties (attributes) and behavior (methods) of the objects created from the class. In the code:
+Task and PriorityTask are classes.
+TaskList is also a class, holds a list of tasks.
+Objects: An object is a class instance. A number of objects are created using a single class. While developing a task or a priority task, objects are being developed of the respective classes:
+task_list = TaskList() creates an object of the TaskList class.
+new_task = Task(title, description) initializes an object of the Task class.
+
+2. Inheritance
+Inheritance allows a class to take on characteristics and functions of another class. This makes the code reusable.
+In the code:
+PriorityTask is subclass of the Task class. That is, PriorityTask will inherit all the fields and methods of the Task class (such as title, description, and status), but it will also have its own unique features for handling priority.
+PriorityTask class adds the extra attribute (priority) and function (__str__() that incorporates the priority info.).
+
+3. Encapsulation
+Encapsulation is the grouping of data (attributes) and methods (functions) that act on the data into one unit or class. It conceals the internal details of the object and reveals only what is required.
+In the code:
+The Task and PriorityTask classes hides the internal details of how tasks are implemented, but offer methods to work with them, such as:
+mark_complete() to mark a task as completed.
+__str__() to display a task's information.
+The TaskList class wraps the functionality to work with a list of tasks, hiding how tasks are represented (in a list) and offering methods such as add_task() and remove_task() to work with them.
+
+4. Method Overriding
+Method Overriding is when a subclass gives its own definition of a method that is already present in its superclass.
+In the code:
+PriorityTask extends the __str__() function of the Task class to add more information concerning the priority of the task.
+The default __str__() function in the Task class would yield something like "Task: Task Name - Status: Incomplete", but the one overridden in PriorityTask includes priority details: "Priority Task: Task Name - Status: Incomplete - Priority: High".
+
+5. Polymorphism
+Polymorphism means the ability to handle objects of different classes by a single interface. The most common form of polymorphism is method overriding, where multiple classes can implement different versions of a single method.
+In the example:
+The __str__() function demonstrates polymorphism: although both Task and PriorityTask employ __str__(), each of them will provide varying output based on the type of object:
+Task objects display default information.
+PriorityTask objects display additional priority details.
+
+6. Constructor and Initializing Objects
+Constructors are special methods that are called when an object is created. They are used to define the object’s attributes.
+In the code:
+The __init__() method in the Task and PriorityTask classes defines the object with certain values. For example:
+self.title = title sets the title for the task.
+self.priority = priority defines the priority for priority tasks.
+The TaskList class also has an __init__() method, which initializes an empty list self.tasks = [] to hold tasks.
+
+7. Method/Function Usage
+Methods are used to perform specific actions on objects or classes.
+In the code:
+Methods like add_task(), mark_complete(), list_tasks(), etc., are used to show the state of the tasks.
+For example, the add_task() method creates a new task and adds it to the tasks list.
+mark_complete() changes the status of a task to "complete", while remove_task() deletes a task by title.
